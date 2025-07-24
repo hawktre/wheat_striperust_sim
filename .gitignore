@@ -29,6 +29,7 @@ vignettes/*.pdf
 *.rda
 *.rdata
 *.rda
+*.rds
 # Text files
 *.csv
 *.txt
@@ -41,7 +42,6 @@ vignettes/*.pdf
 # Access
 *.mdb
 DataRaw/*
-DataProcessed/*
 Code/Archive/cdm_project/*
 !*/ReadMe.md
 # Reports
