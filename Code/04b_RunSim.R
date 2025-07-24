@@ -13,10 +13,22 @@
 
 ## load up the packages we will need:  (uncomment as required)
 options(repos = c(CRAN = "https://cloud.r-project.org"))
-install.packages(c("here", "data.table", "tidyverse", "furrr", "MASS"), dependencies = T)
+install.packages(c("here", 
+                   "data.table", 
+                   "dplyr", 
+                   "purrr", 
+                   "stringr", 
+                   "lubridate", 
+                   "tidyr", 
+                   "furrr", 
+                   "MASS"), dependencies = T)
 library(here)
 library(data.table)
-library(tidyverse)
+library(dplyr)
+library(purrr)
+library(stringr)
+library(lubridate)
+library(tidyr)
 library(furrr)
 library(MASS)
 source(here("Code/02a_GradDescentFun.R"))
