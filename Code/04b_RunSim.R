@@ -12,16 +12,9 @@
 ## ---------------------------
 
 ## load up the packages we will need:  (uncomment as required)
+.libPaths("/home/hawkintr/R_libs/4.4.1")
 options(repos = c(CRAN = "https://cloud.r-project.org"))
-install.packages(c("here", 
-                   "data.table", 
-                   "dplyr", 
-                   "purrr", 
-                   "stringr", 
-                   "lubridate", 
-                   "tidyr", 
-                   "furrr", 
-                   "MASS"), dependencies = T)
+
 library(here)
 library(data.table)
 library(dplyr)
