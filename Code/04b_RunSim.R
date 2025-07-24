@@ -12,6 +12,7 @@
 ## ---------------------------
 
 ## load up the packages we will need:  (uncomment as required)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
 install.packages(c("here", "data.table", "tidyverse", "furrr", "MASS"), dependencies = T)
 library(here)
 library(data.table)
