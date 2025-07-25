@@ -12,8 +12,12 @@
 ## ---------------------------
 
 ## load up the packages we will need:  (uncomment as required)
-.libPaths("/home/hawkintr/R_libs/4.4.1")
 options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+pkgs <- c("here", "data.table", "dplyr", "purrr", "stringr",
+          "lubridate", "tidyr", "furrr", "MASS")
+
+install.packages(pkgs, lib = my_lib, dependencies = TRUE)
 
 library(here)
 library(data.table)
@@ -33,7 +37,7 @@ forward_fits <- readRDS(here("DataProcessed/results/forward_model/forward_fits.r
 mod_dat <- readRDS(here("DataProcessed/experimental/mod_dat_arrays.rds"))
 
 ## Set up Simulation
-plan(multicore(workers = availableCores()))
+plan(multicore(workers = 8)) # Set up parallel processing
 nsim <- 10000
 
 ## Run the simulation
