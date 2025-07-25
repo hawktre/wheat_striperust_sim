@@ -37,7 +37,7 @@ forward_fits <- readRDS(here("DataProcessed/results/forward_model/forward_fits.r
 mod_dat <- readRDS(here("DataProcessed/experimental/mod_dat_arrays.rds"))
 
 ## Set up Simulation
-plan(multicore(workers = 8)) # Set up parallel processing
+plan(multicore(workers = availableCores())) # Set up parallel processing
 nsim <- 10000
 
 ## Run the simulation
