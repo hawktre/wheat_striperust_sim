@@ -1,7 +1,7 @@
 #!/bin/bash -l
 
-#SBATCH -J my_job
-#SBATCH -o my_job.output
+#SBATCH -J wheat_striperust_sim
+#SBATCH -o wheat_striperust.output
 #SBATCH -e error.output
 
 # Default in slurm
