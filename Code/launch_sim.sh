@@ -12,9 +12,8 @@
 # Request 4 hours run time
 #SBATCH -t 24:0:0
 
-# Specify the project for job
-
-#SBATCH -A wheat_striperust_sim
+# Specify the partition to run on
+#SBATCH --partition=dri.q
 
 # Set Memory for job
 #SBATCH --mem=16G
@@ -22,8 +21,6 @@
 #SBATCH --ntasks=1
 
 # Change version of R
-
-module load R/4.4.1
 
 echo "start R job"
 
