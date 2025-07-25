@@ -17,7 +17,7 @@ options(repos = c(CRAN = "https://cloud.r-project.org"))
 pkgs <- c("here", "data.table", "dplyr", "purrr", "stringr",
           "lubridate", "tidyr", "furrr", "MASS")
 
-install.packages(pkgs, lib = my_lib, dependencies = TRUE)
+install.packages(pkgs, dependencies = TRUE)
 
 library(here)
 library(data.table)
