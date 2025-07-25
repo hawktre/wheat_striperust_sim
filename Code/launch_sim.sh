@@ -8,4 +8,9 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
-#SBATCH --partition=compute
+#SBATCH --partition=dri.q
+
+# Load the R module
+module load R
+
+Rscript --vanilla Code/04b_RunSim.R
