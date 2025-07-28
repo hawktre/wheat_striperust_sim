@@ -11,17 +11,18 @@
 ##
 ## ---------------------------
 
-setwd("/scratch/hawkintr/wheat_striperust_sim")
+# setwd("/scratch/hawkintr/wheat_striperust_sim")
 
-## load up the packages we will need:  (uncomment as required)
-options(repos = c(CRAN = "https://cloud.r-project.org"))
+# ## load up the packages we will need:  (uncomment as required)
+# options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-pkgs <- c("data.table", "dplyr", "purrr", "stringr",
-          "lubridate", "tidyr", "furrr", "MASS")
+# pkgs <- c("data.table", "dplyr", "purrr", "stringr",
+#           "lubridate", "tidyr", "furrr", "MASS")
 
-install.packages(pkgs, dependencies = TRUE)
+# install.packages(pkgs, dependencies = TRUE)
 
 # Load packages
+library(here)
 library(data.table)
 library(dplyr)
 library(purrr)
