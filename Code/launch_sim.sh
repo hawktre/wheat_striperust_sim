@@ -5,7 +5,6 @@
 #SBATCH -e error.output
 
 # Default in slurm
-#SBATCH -D ./
 #SBATCH --mail-user hawkintr@oregonstate.edu
 #SBATCH --mail-type=ALL
 
