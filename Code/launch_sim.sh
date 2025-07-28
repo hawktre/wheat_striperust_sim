@@ -23,7 +23,7 @@
 
 echo "start R job"
 
-module load R
+module load 
 
 Rscript --vanilla Code/04b_RunSim.R
 
