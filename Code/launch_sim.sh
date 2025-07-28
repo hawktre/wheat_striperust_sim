@@ -27,4 +27,4 @@ module load R/4.4.1
 
 Rscript --vanilla Code/04b_RunSim.R
 
-echo “R Finished"
+echo "R Finished"
