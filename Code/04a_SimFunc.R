@@ -70,7 +70,6 @@ forward_fit <- function(blk, trt, vst, mod_dat, dist, kappa_try) {
     )
     
     if (!inherits(fit, "try-error")) {
-      se <- sqrt(diag(ginv(fit$hessian)))
       results_list[[length(results_list) + 1]] <- list(
         block = blk,
         treat = as.numeric(trt),
@@ -80,7 +79,6 @@ forward_fit <- function(blk, trt, vst, mod_dat, dist, kappa_try) {
         neg_loglik = fit$value,
         converged = fit$convergence == 0,
         theta = list(fit$par),
-        theta_se = list(se),
         pi = pi
       )
     }
@@ -255,7 +253,6 @@ source_pred <- function(config, blk, trt, vst, p_mat, mod_dat) {
 # Wrapper Function for the simulation -------------------------------------
 single_sim <- function(sim_id, dat, forward_mod, output_dir = here("DataProcessed/results/simulation")) {
   tryCatch({
-    browser()
     # Set up indices
     blocks <- dimnames(dat$intensity)[["block"]]
     treats <- dimnames(dat$intensity)[["treat"]]

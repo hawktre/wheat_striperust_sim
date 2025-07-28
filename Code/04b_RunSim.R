@@ -39,7 +39,7 @@ forward_fits <- readRDS(here("DataProcessed/results/forward_model/forward_fits.r
 mod_dat <- readRDS(here("DataProcessed/experimental/mod_dat_arrays.rds"))
 
 # Set up parallel simulation
-nsim <- 10000
+nsim <- 8
 ncores <- detectCores(logical = FALSE)  # Physical cores only (optional)
 ncores <- min(nsim, ncores)
 
@@ -50,7 +50,7 @@ sim_list <- mclapply(1:nsim, function(i) {
 }, mc.cores = ncores)
 
 # Combine results into a data.frame
-sims <- bind_rows(sim_list)
+sims <- rbindlist(sim_list)
 
 # Save
 saveRDS(sims, here("DataProcessed/results/simulation/sims.rds"))

@@ -16,14 +16,14 @@
 
 # Set Memory for job
 #SBATCH --mem=16G
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=32
 #SBATCH --ntasks=1
 
 # Change version of R
 
 echo "start R job"
 
-module load 
+module load R/4.4.1
 
 Rscript --vanilla Code/04b_RunSim.R
 
