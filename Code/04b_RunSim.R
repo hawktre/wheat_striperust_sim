@@ -21,31 +21,36 @@
 
 # install.packages(pkgs, dependencies = TRUE)
 
-# Load packages
 library(here)
 library(data.table)
 library(dplyr)
-library(purrr)
 library(stringr)
 library(lubridate)
 library(tidyr)
-library(furrr)
 library(MASS)
+library(purrr)
+library(parallel)  # Use base parallel package
 source(here("Code/02a_GradDescentFun.R"))
 source(here("Code/03a_EMgradfun.R"))
 source(here("Code/04a_SimFunc.R"))
 
-# Read in the data --------------------------------------------------------
+# Read in data
 forward_fits <- readRDS(here("DataProcessed/results/forward_model/forward_fits.rds"))
 mod_dat <- readRDS(here("DataProcessed/experimental/mod_dat_arrays.rds"))
 
-## Set up Simulation
-plan(multicore(workers = availableCores())) # Set up parallel processing
-nsim <- 10000
+# Set up parallel simulation
+nsim <- 4
+ncores <- detectCores(logical = FALSE)  # Physical cores only (optional)
+ncores <- min(nsim, ncores)
 
-## Run the simulation
 set.seed(404)
-sims <- 1:nsim %>% future_map_dfr(~single_sim(.x, mod_dat, forward_fits, output_dir = here("DataProcessed/results/simulation/errors/")))
+sim_list <- mclapply(1:nsim, function(i) {
+  single_sim(i, mod_dat, forward_fits,
+             output_dir = here("DataProcessed/results/simulation/errors/"))
+}, mc.cores = ncores)
 
+# Combine results into a data.frame
+sims <- bind_rows(sim_list)
 
+# Save
 saveRDS(sims, here("DataProcessed/results/simulation/sims.rds"))
